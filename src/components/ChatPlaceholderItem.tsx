@@ -5,7 +5,7 @@ type Props = {
 
 export const ChatPlaceholderItem = ({ subject, setCurrentSubject }: Props) => {
     return (
-        <div onClick={() => setCurrentSubject(subject)} className={`rounded-lg text-center text-lg text-white p-4 flex-1 md:cursor-pointer border-2 md:hover:brightness-150 transition-all ${
+        <div onClick={() => setCurrentSubject(subject)} className={`rounded-lg select-none text-center text-lg text-white p-4 flex-1 md:cursor-pointer border-2 md:hover:brightness-150 transition-all ${
             (subject === 'Português' && 'bg-portugues/20 border-portugues') ||
             (subject === 'Inglês' && 'bg-ingles/20 border-ingles') ||
             (subject === 'Geografia' && 'bg-geografia/20 border-geografia') ||

@@ -3,20 +3,31 @@ import IconMenu from "./icons/IconMenu";
 import IconUser from "./icons/IconUser";
 
 type Props = {
-    openSidebarClick: () => void;
     title: string;
     newChatClick: () => void;
+    AILoading: boolean;
     currentSubject: string;
+    exams: string[];
+    currentExam: string;
+    isSmall: boolean;
+    setCurrentExam: (exam: string) => void;
 }
 
-export const Header = ({ openSidebarClick, title, newChatClick, currentSubject }: Props) => {
+export const Header = ({ title, newChatClick, AILoading, currentSubject, exams, currentExam, isSmall, setCurrentExam }: Props) => {
     return (
         <header className="flex justify-between items-center w-full border-b-2 border-b-white/10 h-14 px-3">
-            <div onClick={openSidebarClick}>
-                <IconMenu width={24} height={24} />
-            </div>
+            <select 
+                disabled={AILoading} 
+                value={currentExam} 
+                onChange={(e) => setCurrentExam(e.target.value)} 
+                className={`w-40 h-8 rounded-md bg-intellectia-gray border-2 border-intellectia-lightblue outline-none pl-2 ${!AILoading && 'cursor-pointer'}`}
+            >
+                {['Todos', ...exams].map((item) => (
+                    <option value={item}>{item}</option>
+                ))}
+            </select>
 
-            <div className={`mx-2 truncate w-80 rounded-full flex px-2 h-8 text-sm justify-center items-center border-2 justify-self-center ${
+            <div className={`mx-3 truncate w-80 rounded-full flex px-2 h-8 text-sm justify-center items-center border-2 ${
                 (currentSubject === 'Português' && 'bg-portugues/10 border-portugues/60') ||
                 (currentSubject === 'Inglês' && 'bg-ingles/10 border-ingles/60') ||
                 (currentSubject === 'Geografia' && 'bg-geografia/10 border-geografia/60') ||
@@ -27,9 +38,11 @@ export const Header = ({ openSidebarClick, title, newChatClick, currentSubject }
             }`}>{title}</div>
 
             <div className="h-8 flex gap-3">
-                <div onClick={newChatClick} className="h-8 w-8 rounded-full flex justify-center items-center md:cursor-pointer md:hover:bg-white/10">
-                    <IconAdd width={24} height={24} />
-                </div>
+                {isSmall &&
+                    <div onClick={newChatClick} className="h-8 w-8 rounded-full bg-white/10 flex justify-center items-center md:cursor-pointer md:hover:bg-white/10">
+                        <IconAdd width={24} height={24} />
+                    </div>
+                }
 
                 <div className="h-8 w-8 rounded-full bg-white/80 flex justify-center items-center md:cursor-pointer border-2 border-intellectia-lightblue">
                     <IconUser width={24} height={24} className="text-white" />
