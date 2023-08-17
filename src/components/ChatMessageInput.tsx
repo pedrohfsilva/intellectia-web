@@ -5,10 +5,11 @@ type Props = {
     disabled: boolean;
     onSend: (message: string) => void;
     currentSubject: string;
+    text: string;
+    setText: (text: string) => void;
 }
 
-export const ChatMessageInput = ({ disabled, onSend, currentSubject }: Props) => {
-    const [text, setText] = useState('');
+export const ChatMessageInput = ({ disabled, onSend, currentSubject, text, setText }: Props) => {
     const textEl = useRef<HTMLTextAreaElement>(null);
 
     useEffect(() => {
@@ -18,6 +19,12 @@ export const ChatMessageInput = ({ disabled, onSend, currentSubject }: Props) =>
             textEl.current.style.height = scrollHeight + 'px';
         }
     }, [text, textEl, currentSubject]);
+
+    useEffect(() => {
+        if(textEl.current) {
+            textEl.current.focus();
+        }
+    }, [text, disabled]);
 
     useEffect(() => {
         setText('');

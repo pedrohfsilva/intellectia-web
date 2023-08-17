@@ -1,3 +1,5 @@
+import { Session } from "next-auth"
+
 import IconAdd from "./icons/IconAdd";
 import IconMenu from "./icons/IconMenu";
 import IconUser from "./icons/IconUser";
@@ -11,11 +13,13 @@ type Props = {
     currentExam: string;
     isSmall: boolean;
     setCurrentExam: (exam: string) => void;
+    session: Session;
+    openProfile: () => void;
 }
 
-export const Header = ({ title, newChatClick, AILoading, currentSubject, exams, currentExam, isSmall, setCurrentExam }: Props) => {
+export const Header = ({ title, newChatClick, AILoading, currentSubject, exams, currentExam, isSmall, setCurrentExam, session, openProfile }: Props) => {
     return (
-        <header className="flex justify-between items-center w-full border-b-2 border-b-white/10 h-14 px-3">
+        <header className="flex justify-between items-center w-full border-b-2 border-b-white/10 p-3">
             <select 
                 disabled={AILoading} 
                 value={currentExam} 
@@ -44,7 +48,7 @@ export const Header = ({ title, newChatClick, AILoading, currentSubject, exams, 
                     </div>
                 }
 
-                <div className="h-8 w-8 rounded-full bg-white/80 flex justify-center items-center md:cursor-pointer border-2 border-intellectia-lightblue">
+                <div className="h-8 w-8 rounded-full bg-white/80 flex justify-center items-center md:cursor-pointer border-2 border-intellectia-lightblue" onClick={() => openProfile()}>
                     <IconUser width={24} height={24} className="text-white" />
                 </div>
             </div>

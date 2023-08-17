@@ -13,7 +13,7 @@ type Props = {
     onClose: () => void;
     onClear: () => void;
     onNewChat: () => void;
-    onSearch: () => React.ReactNode;
+    onSearch: () => ReactNode;
     searchText: string;
     setSearchText: (text: string) => void;
     myStudiesOpened: boolean;
