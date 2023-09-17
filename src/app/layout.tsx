@@ -22,17 +22,20 @@ export default async function RootLayout({
   return (
     <html lang="pt-br">
       <body className={inter.className}>
-        <SessionProvider session={session}>
-          {!session ? (
-            <Login />
-          ) : (
-            <div>
-              {/* {children} */}
-              <Page session={session} />
-            </div>
-          )}
-        </SessionProvider>
+        {children}
       </body>
     </html>
   )
 }
+
+
+{/* <SessionProvider session={session}> */}
+// {!session ? (
+//   <Login />
+// ) : (
+//   <div>
+//     {/* {children} */}
+//     <Page session={session} />
+//   </div>
+// )}
+// </SessionProvider>

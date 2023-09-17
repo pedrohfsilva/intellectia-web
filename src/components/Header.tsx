@@ -48,7 +48,7 @@ export const Header = ({ title, newChatClick, AILoading, currentSubject, exams, 
                     </div>
                 }
 
-                <div className="h-8 w-8 rounded-full bg-white/80 flex justify-center items-center md:cursor-pointer border-2 border-intellectia-lightblue" onClick={() => openProfile()}>
+                <div className="h-8 w-8 rounded-full bg-white/80 flex justify-center items-center md:cursor-pointer border-2 border-intellectia-lightblue">
                     <IconUser width={24} height={24} className="text-white" />
                 </div>
             </div>

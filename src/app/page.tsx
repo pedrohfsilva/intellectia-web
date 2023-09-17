@@ -13,6 +13,7 @@ import { Sidebar } from "@/components/Sidebar";
 import { SidebarChatButton } from "@/components/SidebarChatButton";
 import { Chat } from "@/types/Chat";
 import { Profile } from "@/components/Profile";
+import { ChatMessage } from "@/types/ChatMessage";
 
 type Props = {
   session: Session;
@@ -21,6 +22,51 @@ type Props = {
 const Page = ( {session}: Props ) => {
   const [sidebarOpened, setSidebarOpened] = useState(false);
   const [chatList, setChatList] = useState<Chat[]>([]);
+
+
+  let fheihfiehi = [
+    {
+      id: "fhiehifwhfe",
+      title: "Título do chat",
+      subject: "Português",
+      messages: [
+        {
+          id: "fhiehfihiew",
+          author: "me",
+          exam: "Enem",
+          body: "Exemplo de chat"
+        },
+        {
+          id: "fhiehfihiew",
+          author: "ai",
+          exam: "Enem",
+          body: "Exemplo de chat 1"
+        },
+      ]
+    },
+    {
+      id: "fheihwiohfe",
+      title: "Título do chat 2",
+      subject: "Geografia",
+      messages: [
+        {
+          id: "fhiehfihiew",
+          author: "me",
+          exam: "Enem",
+          body: "Exemplo de chat 2"
+        },
+        {
+          id: "huuwguegh",
+          author: "ai",
+          exam: "Enem",
+          body: "Exemplo de chat 4"
+        },
+      ]
+    }
+  ]
+
+  const [chatList2, setChatList2] = useState<any>([[], { subject: "Geral" }]);
+
   const [chatListSearch, setChatListSearch] = useState<Chat[]>(chatList);
   const [chatActiveId, setChatActiveId] = useState<string>('');
   const [chatActive, setChatActive] = useState<Chat>();
@@ -31,6 +77,7 @@ const Page = ( {session}: Props ) => {
   const [myStudiesOpened, setMyStudiesOpened] = useState(false);
   const [profileOpened, setProfileOpened] = useState(false);
   const [isSmall, setIsSmall] = useState(false);
+  const [chatLoading, setChatLoading] = useState(false);
 
   const subjects = [
     'Português', 'Inglês', 'Geografia', 'História', 'Filosofia e sociologia', 'Arte e literatura'
@@ -128,21 +175,104 @@ const Page = ( {session}: Props ) => {
   const openProfile = () => setProfileOpened(true);
   const closeProfile = () => setProfileOpened(false);
 
-  const getAIResponse = () => {
-    setTimeout(() => {
-      let chatListClone = [...chatList];
-      let chatIndex = chatListClone.findIndex(item => item.id === chatActiveId);
-      if(chatIndex > -1) {
-        chatListClone[chatIndex].messages.push({
-          id: uuidv4(),
-          author: 'ai',
-          exam: currentExam,
-          body: `A Revolução Industrial começou na indústria têxtil, que foi uma das primeiras a adotar novas tecnologias e métodos de produção. Antes desse período, a produção de roupas era principalmente realizada em casa, de forma artesanal.`
-        });
+  function convertChatList(chatId: string, curSubject: string): any {
+    let currentChat = chatList.find((item) => item.id === chatId);
+    let chatMessages = currentChat?.messages.map((item) => {
+      // return { 
+      //   author: item.author === 'me' ? 'user' : 'assistant',
+      //   body: item.body
+      // }
+      return item.body;
+    })
+    if(chatMessages && chatMessages.length > 0) {
+      let chatMessagesPair = [];
+      for(let i=0; i<chatMessages.length / 2; i++) {
+        chatMessagesPair.push({
+          user: chatMessages[i*2],
+          assistant: chatMessages[i*2+1]
+        })
       }
-      setChatList(chatListClone);
-      setIALoading(false);
-    }, 4000);
+      let chatAux = [];
+      chatAux.push(chatMessagesPair);
+      chatAux.push({ subject: curSubject });
+      return chatAux;
+    } else {
+      return [[], { subject: curSubject }];
+    }
+  }
+
+  async function sendChat(chatData: any) {
+    setChatLoading(true);
+    try {
+      // Fazer uma solicitação POST para a API com os dados
+      const response = await fetch('https://6b09-2001-12d0-2080-2800-172-26-ffff-f1dd.ngrok-free.app/loadChat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json', // Certifique-se de definir o tipo de conteúdo correto
+        },
+        body: JSON.stringify(chatData), // Converter os dados para JSON
+      });
+  
+      if (!response.ok) {
+        throw new Error('Erro na solicitação à API');
+      }
+  
+      // Processar a resposta JSON
+      await response.json();
+
+    } catch (error) {
+      console.error('Erro ao enviar/obter dados da API:', error);
+      throw error; // Lançar o erro novamente para que o componente que chama essa função possa lidar com ele
+    }
+    setChatLoading(false);
+  }
+
+  // useEffect(() => {
+  //   sendChat(convertChatList());
+  // }, []);
+
+  async function getBackendResponse(dados: string) {
+    try {
+      // Fazer uma solicitação POST para a API com os dados
+      const response = await fetch('https://6b09-2001-12d0-2080-2800-172-26-ffff-f1dd.ngrok-free.app/chat1', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json', // Certifique-se de definir o tipo de conteúdo correto
+        },
+        body: JSON.stringify(dados), // Converter os dados para JSON
+      });
+  
+      if (!response.ok) {
+        throw new Error('Erro na solicitação à API');
+      }
+  
+      // Processar a resposta JSON
+      const dadosDaResposta = await response.json();
+    
+      // Retornar os dados da resposta
+      return dadosDaResposta.assistant;
+    } catch (error) {
+      console.error('Erro ao enviar/obter dados da API:', error);
+      throw error; // Lançar o erro novamente para que o componente que chama essa função possa lidar com ele
+    }
+  }
+
+  const getAIResponse = async () => {
+    let chatListClone = [...chatList];
+    let chatIndex = chatListClone.findIndex(item => item.id === chatActiveId);
+    let arrayMessages = chatListClone[chatIndex].messages;
+    let dataChat = await getBackendResponse(arrayMessages[arrayMessages.length - 1].body);
+
+    if(chatIndex > -1) {
+      chatListClone[chatIndex].messages.push({
+        id: uuidv4(),
+        author: 'ai',
+        exam: currentExam,
+        body: dataChat ?? "Erro"
+      });
+    }
+    setChatList(chatListClone);
+    setIALoading(false);
   }
 
   const handleClearConversations = () => {
@@ -156,8 +286,8 @@ const Page = ( {session}: Props ) => {
     if(AILoading) return;
 
     setChatActiveId('');
-    closeSidebar();
     setCurrentSubject('Geral');
+    closeSidebar();
   }
 
   const handleSearch = (): React.ReactNode => {
@@ -191,6 +321,8 @@ const Page = ( {session}: Props ) => {
   const handleSendMessage = (message: string) => {
     if(!chatActiveId) {
       let newChatId = uuidv4();
+      sendChat(convertChatList(newChatId, currentSubject));
+
       setChatList([{
         id: newChatId,
         title: message,
@@ -219,8 +351,13 @@ const Page = ( {session}: Props ) => {
 
     let item = chatList.find(item => item.id === id);
     if(item) {
-      setChatActiveId(item.id);
-      setCurrentSubject(item.subject);
+      let chatId = item.id;
+      let curSubject = item.subject;
+
+      sendChat(convertChatList(chatId, curSubject));
+
+      setChatActiveId(chatId);
+      setCurrentSubject(curSubject);
     }
     closeSidebar();
   }
@@ -286,7 +423,7 @@ const Page = ( {session}: Props ) => {
           currentSubject={currentSubject} 
           isSmall={isSmall}
           openSidebarClick={openSidebar}
-          setCurrentSubject={setCurrentSubject} 
+          setCurrentSubject={setCurrentSubject}
         />
 
         <Footer

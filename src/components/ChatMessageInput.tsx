@@ -24,7 +24,7 @@ export const ChatMessageInput = ({ disabled, onSend, currentSubject, text, setTe
         if(textEl.current) {
             textEl.current.focus();
         }
-    }, [text, disabled]);
+    }, [text, disabled, currentSubject]);
 
     useEffect(() => {
         setText('');
