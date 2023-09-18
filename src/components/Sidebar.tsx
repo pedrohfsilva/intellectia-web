@@ -52,7 +52,7 @@ export const Sidebar = ({ children, open, AILoading, onClose, onClear, onNewChat
                         <div className={`transition-all flex items-center h-10 px-3 rounded-md text-sm border-2 border-white/20`}>
                             <IconIconSearch width={16} height={16} className="mr-3 text-white/80"/>
                             <input
-                                className="w-full bg-transparent outline-none text-sm p-1.5"
+                                className="w-full bg-transparent outline-none text-sm text-white p-1.5"
                                 value={searchText}
                                 placeholder="Pesquiar seção"
                                 onChange={e => setSearchText(e.target.value)}

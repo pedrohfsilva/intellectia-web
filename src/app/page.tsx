@@ -378,6 +378,7 @@ const Page = () => {
     let chatIndex = chatListClone.findIndex(item => item.id === id);
     chatListClone.splice(chatIndex, 1);
     setChatList(chatListClone);
+    setLocalStorage("chatData", chatListClone);
     setChatActiveId('');
     setCurrentSubject('Geral');
   }
@@ -388,6 +389,7 @@ const Page = () => {
       let chatIndex = chatListClone.findIndex(item => item.id === id);
       chatListClone[chatIndex].title = newTitle;
       setChatList(chatListClone);
+      setLocalStorage("chatData", chatListClone);
     }
   }
 

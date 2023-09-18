@@ -38,7 +38,7 @@ export const ChatMessageInput = ({ disabled, onSend, currentSubject, text, setTe
     }
 
     return (
-        <div className={`flex items-center border-2 bg-white/10 p-2 rounded-[26px] ${disabled && 'opacity-50'} ${
+        <div className={`flex items-center border-2 bg-white/10 p-2 text-white rounded-[26px] ${disabled && 'opacity-50'} ${
             (currentSubject === 'Português' && 'border-portugues') ||
             (currentSubject === 'Inglês' && 'border-ingles') ||
             (currentSubject === 'Geografia' && 'border-geografia') ||

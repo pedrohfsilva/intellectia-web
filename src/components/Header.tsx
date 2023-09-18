@@ -35,7 +35,7 @@ export const Header = ({ title, newChatClick, AILoading, currentSubject, exams, 
                 <IconMenu width={24} height={24} className="md:hidden"/>
             </div>
 
-            <div className={`mx-3 truncate w-80 rounded-full flex px-2 h-8 text-sm justify-center items-center border-2 ${
+            <div className={`mx-3 truncate w-80 rounded-full flex px-2 h-8 text-sm justify-center items-center border-2 text-white ${
                 (currentSubject === 'Português' && 'bg-portugues/10 border-portugues/60') ||
                 (currentSubject === 'Inglês' && 'bg-ingles/10 border-ingles/60') ||
                 (currentSubject === 'Geografia' && 'bg-geografia/10 border-geografia/60') ||

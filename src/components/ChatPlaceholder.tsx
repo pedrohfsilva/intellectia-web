@@ -9,7 +9,7 @@ type Props = {
 export const ChatPlaceholder = ({ subjects, setCurrentSubject }: Props) => {
     return (
         <div className="my-5 md:my-20">
-            <h3 className="text-2xl fron-bold text-center my-10">Escolha uma disciplina para estudar</h3>
+            <h3 className="text-2xl fron-bold text-center text-white my-10">Escolha uma disciplina para estudar</h3>
             <div className="flex flex-col md:flex-row gap-5 w-full">
 
                 <div className="flex flex-col flex-1 gap-5">
