@@ -3,6 +3,7 @@ import { ChatPlaceholder } from "./ChatPlaceholder";
 import { ChatMessageItem } from "./ChatMessageItem";
 import { ChatMessageLoding } from "./ChatMessageLoading";
 import IconChevronRight from "./icons/IconChevronRight";
+import { useEffect, useRef } from "react";
 
 type Props = {
     chat: Chat | undefined;
@@ -15,8 +16,15 @@ type Props = {
 }
 
 export const ChatArea = ({ chat, loading, subjects, currentSubject, isSmall, openSidebarClick, setCurrentSubject }: Props) => {
+    const scrollArea = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        scrollArea.current?.scrollTo(0, scrollArea.current?.scrollHeight);
+    }, [loading, chat?.messages.length]);
+
+
     return (
-        <section className="flex-auto h-0 overflow-y-auto p-4 relative">
+        <section ref={scrollArea} className="flex-auto h-0 overflow-y-auto p-4 relative">
             <div className="md:max-w-4xl m-auto">
                 {/* {isSmall &&
                     <div onClick={openSidebarClick} className="fixed left-4 top-16 w-10 h-10 rounded-full flex justify-center items-center bg-intellectia-blue shadow-md">

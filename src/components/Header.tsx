@@ -1,4 +1,4 @@
-import { Session } from "next-auth"
+// import { Session } from "next-auth"
 
 import IconAdd from "./icons/IconAdd";
 import IconMenu from "./icons/IconMenu";
@@ -14,10 +14,10 @@ type Props = {
     isSmall: boolean;
     setCurrentExam: (exam: string) => void;
     openProfile: () => void;
-    openSidebar: () => void;
+    openSidebarClick: () => void;
 }
 
-export const Header = ({ title, newChatClick, AILoading, currentSubject, exams, currentExam, isSmall, setCurrentExam, openProfile, openSidebar }: Props) => {
+export const Header = ({ title, newChatClick, AILoading, currentSubject, exams, currentExam, isSmall, setCurrentExam, openProfile, openSidebarClick }: Props) => {
     return (
         <header className="flex justify-between items-center w-full border-b-2 border-b-white/10 p-3">
             {/* <select 
@@ -31,7 +31,7 @@ export const Header = ({ title, newChatClick, AILoading, currentSubject, exams, 
                 ))}
             </select> */}
 
-            <div onClick={openSidebar} className="h-8 w-8 flex justify-center items-center">
+            <div onClick={openSidebarClick} className="h-8 w-8 flex justify-center items-center">
                 <IconMenu width={24} height={24} className="md:hidden"/>
             </div>
 

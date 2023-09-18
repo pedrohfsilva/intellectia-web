@@ -29,8 +29,8 @@ export const ChatMessageSugestion = ({ subjects, currentSubject, suggestions, se
     const renderSuggestions = (): ReactNode => {
         return (
             <div className="h-full w-fit flex gap-x-3">
-                {suggestionsShuffle.map((item) => {
-                    return (<ChatMessageSugestionItem currentSubject={currentSubject} suggestion={item} setText={setText}/>)
+                {suggestionsShuffle.map((item, index) => {
+                    return (<ChatMessageSugestionItem key={index} currentSubject={currentSubject} suggestion={item} setText={setText}/>)
                 })}
             </div>
         );

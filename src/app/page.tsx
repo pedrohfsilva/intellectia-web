@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
-import { Session } from "next-auth";
+// import { Session } from "next-auth";
 
 import { ChatArea } from "@/components/ChatArea";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { MyStudies } from "@/components/MyStudies";
-import { SessionProvider } from "@/components/SessionProvider";
+// import { SessionProvider } from "@/components/SessionProvider";
 import { Sidebar } from "@/components/Sidebar";
 import { SidebarChatButton } from "@/components/SidebarChatButton";
 import { Chat } from "@/types/Chat";
@@ -408,7 +408,7 @@ const Page = () => {
           setCurrentExam={setCurrentExam}
           // session={session}
           openProfile={openProfile}
-          openSidebar={openSidebar}
+          openSidebarClick={openSidebar}
         />
 
         <ChatArea 
