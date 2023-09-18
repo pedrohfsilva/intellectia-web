@@ -26,8 +26,8 @@ export const Header = ({ title, newChatClick, AILoading, currentSubject, exams, 
                 onChange={(e) => setCurrentExam(e.target.value)} 
                 className={`w-40 h-8 rounded-md bg-intellectia-gray border-2 border-intellectia-lightblue outline-none pl-2 ${!AILoading && 'cursor-pointer'}`}
             >
-                {['Todos', ...exams].map((item) => (
-                    <option value={item}>{item}</option>
+                {['Todos', ...exams].map((item, index) => (
+                    <option value={item} key={index}>{item}</option>
                 ))}
             </select>
 
