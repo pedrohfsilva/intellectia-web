@@ -169,6 +169,63 @@ const Page = () => {
     if(AILoading) getAIResponse();
   }, [AILoading]);
 
+  function getLocalStorage(key: string) {
+    const data = window.localStorage.getItem(key);
+    return JSON.parse(data!);
+  }
+
+  function setLocalStorage(key: string, value: Chat[]) {
+    const data = JSON.stringify(value);
+    return window.localStorage.setItem(key, data);
+  }
+
+  useEffect(() => {
+    setChatList(getLocalStorage("chatData"));
+  }, []);
+
+  const handleClearConversations = () => {
+    if(AILoading) return;
+
+    setChatActiveId('');
+    setChatList([]);
+  }
+
+  const handleNewChat = () => {
+    if(AILoading) return;
+
+    setChatActiveId('');
+    setCurrentSubject('Geral');
+    closeSidebar();
+  }
+
+  const handleSearch = (): React.ReactNode => {
+      return (
+        searchText === '' ? 
+          chatList.map(item => (
+            <SidebarChatButton 
+              key={item.id}
+              chatItem={item}
+              active={item.id === chatActiveId}
+              onClick={handleSelectChat}
+              onDelete={handleDeleteChat}
+              onEdit={handleEditChat}
+              AILoading={AILoading}
+            />
+          )) :
+          chatList.filter(item => (item.title.toLowerCase().includes(searchText.toLowerCase()) || item.subject.toLowerCase().includes(searchText.toLowerCase()))).map(item => (
+            <SidebarChatButton 
+              key={item.id}
+              chatItem={item}
+              active={item.id === chatActiveId}
+              onClick={handleSelectChat}
+              onDelete={handleDeleteChat}
+              onEdit={handleEditChat}
+              AILoading={AILoading}
+            />
+          ))
+      );
+  }
+
   function convertChatList(chatId: string, curSubject: string): any {
     let currentChat = chatList.find((item) => item.id === chatId);
     let chatMessages = currentChat?.messages.map((item) => {
@@ -266,50 +323,8 @@ const Page = () => {
       });
     }
     setChatList(chatListClone);
+    setLocalStorage("chatData", chatListClone);
     setIALoading(false);
-  }
-
-  const handleClearConversations = () => {
-    if(AILoading) return;
-
-    setChatActiveId('');
-    setChatList([]);
-  }
-
-  const handleNewChat = () => {
-    if(AILoading) return;
-
-    setChatActiveId('');
-    setCurrentSubject('Geral');
-    closeSidebar();
-  }
-
-  const handleSearch = (): React.ReactNode => {
-      return (
-        searchText === '' ? 
-          chatList.map(item => (
-            <SidebarChatButton 
-              key={item.id}
-              chatItem={item}
-              active={item.id === chatActiveId}
-              onClick={handleSelectChat}
-              onDelete={handleDeleteChat}
-              onEdit={handleEditChat}
-              AILoading={AILoading}
-            />
-          )) :
-          chatList.filter(item => (item.title.toLowerCase().includes(searchText.toLowerCase()) || item.subject.toLowerCase().includes(searchText.toLowerCase()))).map(item => (
-            <SidebarChatButton 
-              key={item.id}
-              chatItem={item}
-              active={item.id === chatActiveId}
-              onClick={handleSelectChat}
-              onDelete={handleDeleteChat}
-              onEdit={handleEditChat}
-              AILoading={AILoading}
-            />
-          ))
-      );
   }
 
   const handleSendMessage = (message: string) => {
