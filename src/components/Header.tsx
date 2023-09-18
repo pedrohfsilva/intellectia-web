@@ -13,14 +13,14 @@ type Props = {
     currentExam: string;
     isSmall: boolean;
     setCurrentExam: (exam: string) => void;
-    session: Session;
     openProfile: () => void;
+    openSidebar: () => void;
 }
 
-export const Header = ({ title, newChatClick, AILoading, currentSubject, exams, currentExam, isSmall, setCurrentExam, session, openProfile }: Props) => {
+export const Header = ({ title, newChatClick, AILoading, currentSubject, exams, currentExam, isSmall, setCurrentExam, openProfile, openSidebar }: Props) => {
     return (
         <header className="flex justify-between items-center w-full border-b-2 border-b-white/10 p-3">
-            <select 
+            {/* <select 
                 disabled={AILoading} 
                 value={currentExam} 
                 onChange={(e) => setCurrentExam(e.target.value)} 
@@ -29,7 +29,11 @@ export const Header = ({ title, newChatClick, AILoading, currentSubject, exams, 
                 {['Todos', ...exams].map((item, index) => (
                     <option value={item} key={index}>{item}</option>
                 ))}
-            </select>
+            </select> */}
+
+            <div onClick={openSidebar} className="h-8 w-8 flex justify-center items-center">
+                <IconMenu width={24} height={24} className="md:hidden"/>
+            </div>
 
             <div className={`mx-3 truncate w-80 rounded-full flex px-2 h-8 text-sm justify-center items-center border-2 ${
                 (currentSubject === 'Português' && 'bg-portugues/10 border-portugues/60') ||
@@ -41,7 +45,7 @@ export const Header = ({ title, newChatClick, AILoading, currentSubject, exams, 
                 (currentSubject === 'Geral' && 'bg-white/5 border-white/40')
             }`}>{title}</div>
 
-            <div className="h-8 flex gap-3">
+            {/* <div className="h-8 flex gap-3">
                 {isSmall &&
                     <div onClick={newChatClick} className="h-8 w-8 rounded-full bg-white/10 flex justify-center items-center md:cursor-pointer md:hover:bg-white/10">
                         <IconAdd width={24} height={24} />
@@ -51,6 +55,10 @@ export const Header = ({ title, newChatClick, AILoading, currentSubject, exams, 
                 <div className="h-8 w-8 rounded-full bg-white/80 flex justify-center items-center md:cursor-pointer border-2 border-intellectia-lightblue">
                     <IconUser width={24} height={24} className="text-white" />
                 </div>
+            </div> */}
+
+            <div onClick={newChatClick} className="h-8 w-8 rounded-full bg-white/10 flex justify-center items-center md:cursor-pointer md:hover:bg-white/10">
+                <IconAdd width={24} height={24} />
             </div>
         </header>
     );

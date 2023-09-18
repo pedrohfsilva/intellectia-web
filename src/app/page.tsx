@@ -15,14 +15,30 @@ import { Chat } from "@/types/Chat";
 import { Profile } from "@/components/Profile";
 import { ChatMessage } from "@/types/ChatMessage";
 
-type Props = {
-  session: Session;
-}
-
-const Page = ( {session}: Props ) => {
+const Page = () => {
   const [sidebarOpened, setSidebarOpened] = useState(false);
   const [chatList, setChatList] = useState<Chat[]>([]);
+  const [chatListSearch, setChatListSearch] = useState<Chat[]>(chatList);
+  const [chatActiveId, setChatActiveId] = useState<string>('');
+  const [chatActive, setChatActive] = useState<Chat>();
+  const [AILoading, setIALoading] = useState(false);
+  const [currentSubject, setCurrentSubject] = useState('Geral');
+  const [currentExam, setCurrentExam] = useState('Todos');
+  const [searchText, setSearchText] = useState('');
+  const [myStudiesOpened, setMyStudiesOpened] = useState(false);
+  const [profileOpened, setProfileOpened] = useState(false);
+  const [isSmall, setIsSmall] = useState(false);
+  const [chatLoading, setChatLoading] = useState(false);
 
+  const openSidebar = () => setSidebarOpened(true);
+  const closeSidebar = () => setSidebarOpened(false);
+  const openMyStudies = () => {
+    closeSidebar();
+    setMyStudiesOpened(true);
+  }
+  const closeMyStudies = () => setMyStudiesOpened(false);
+  const openProfile = () => setProfileOpened(true);
+  const closeProfile = () => setProfileOpened(false);
 
   let fheihfiehi = [
     {
@@ -65,19 +81,7 @@ const Page = ( {session}: Props ) => {
     }
   ]
 
-  const [chatList2, setChatList2] = useState<any>([[], { subject: "Geral" }]);
-
-  const [chatListSearch, setChatListSearch] = useState<Chat[]>(chatList);
-  const [chatActiveId, setChatActiveId] = useState<string>('');
-  const [chatActive, setChatActive] = useState<Chat>();
-  const [AILoading, setIALoading] = useState(false);
-  const [currentSubject, setCurrentSubject] = useState('Geral');
-  const [currentExam, setCurrentExam] = useState('Todos');
-  const [searchText, setSearchText] = useState('');
-  const [myStudiesOpened, setMyStudiesOpened] = useState(false);
-  const [profileOpened, setProfileOpened] = useState(false);
-  const [isSmall, setIsSmall] = useState(false);
-  const [chatLoading, setChatLoading] = useState(false);
+  // const [chatList2, setChatList2] = useState<any>([[], { subject: "Geral" }]);
 
   const subjects = [
     'Português', 'Inglês', 'Geografia', 'História', 'Filosofia e sociologia', 'Arte e literatura'
@@ -164,16 +168,6 @@ const Page = ( {session}: Props ) => {
   useEffect(() => {
     if(AILoading) getAIResponse();
   }, [AILoading]);
-
-  const openSidebar = () => setSidebarOpened(true);
-  const closeSidebar = () => setSidebarOpened(false);
-  const openMyStudies = () => {
-    closeSidebar();
-    setMyStudiesOpened(true);
-  }
-  const closeMyStudies = () => setMyStudiesOpened(false);
-  const openProfile = () => setProfileOpened(true);
-  const closeProfile = () => setProfileOpened(false);
 
   function convertChatList(chatId: string, curSubject: string): any {
     let currentChat = chatList.find((item) => item.id === chatId);
@@ -384,8 +378,8 @@ const Page = ( {session}: Props ) => {
 
   return (
     <main className="flex w-screen min-h-screen bg-intellectia-gray">
-      {myStudiesOpened && <MyStudies closeMyStudies={closeMyStudies} />}
-      {profileOpened && <Profile session={session} closeProfile={closeProfile} />}
+      {/* {myStudiesOpened && <MyStudies closeMyStudies={closeMyStudies} />} */}
+      {/* {profileOpened && <Profile session={session} closeProfile={closeProfile} />} */}
 
       <Sidebar
         open={sidebarOpened}
@@ -412,8 +406,9 @@ const Page = ( {session}: Props ) => {
           currentExam={currentExam}
           isSmall={isSmall}
           setCurrentExam={setCurrentExam}
-          session={session}
+          // session={session}
           openProfile={openProfile}
+          openSidebar={openSidebar}
         />
 
         <ChatArea 
