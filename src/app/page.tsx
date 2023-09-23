@@ -40,8 +40,8 @@ const Page = () => {
   const openProfile = () => setProfileOpened(true);
   const closeProfile = () => setProfileOpened(false);
 
-  const loadChatUrl = "http://85.31.230.44:8000/loadChat";
-  const sendMessageUrl = "http://85.31.230.44:8000/chat1";
+  const loadChatUrl = "https://85.31.230.44:8000/loadChat";
+  const sendMessageUrl = "https://85.31.230.44:8000/chat1";
 
   let fheihfiehi = [
     {
@@ -111,7 +111,7 @@ const Page = () => {
       'Quais são os pronomes pessoais?',
       'Como funcionam os tempos verbais?',
       'O que é uma metáfora?',
-      'Quais são os antônimos?'
+      'O que são antônimos?'
     ],
     [
       'Crie uma questão sobre ',
