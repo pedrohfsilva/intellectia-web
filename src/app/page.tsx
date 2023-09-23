@@ -40,6 +40,9 @@ const Page = () => {
   const openProfile = () => setProfileOpened(true);
   const closeProfile = () => setProfileOpened(false);
 
+  const loadChatUrl = "http://85.31.230.44:8000/loadChat";
+  const sendMessageUrl = "http://85.31.230.44:8000/chat1";
+
   let fheihfiehi = [
     {
       id: "fhiehifwhfe",
@@ -256,7 +259,7 @@ const Page = () => {
     setChatLoading(true);
     try {
       // Fazer uma solicitação POST para a API com os dados
-      const response = await fetch('https://6b09-2001-12d0-2080-2800-172-26-ffff-f1dd.ngrok-free.app/loadChat', {
+      const response = await fetch(loadChatUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json', // Certifique-se de definir o tipo de conteúdo correto
@@ -285,7 +288,7 @@ const Page = () => {
   async function getBackendResponse(dados: string) {
     try {
       // Fazer uma solicitação POST para a API com os dados
-      const response = await fetch('https://6b09-2001-12d0-2080-2800-172-26-ffff-f1dd.ngrok-free.app/chat1', {
+      const response = await fetch(sendMessageUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json', // Certifique-se de definir o tipo de conteúdo correto

@@ -43,7 +43,7 @@ export const Sidebar = ({ children, open, AILoading, onClose, onClear, onNewChat
                             target="_blank" 
                             className={`flex h-10 select-none justify-center items-center rounded-md text-lg bg-intellectia-blue ${!AILoading && !myStudiesOpened && 'md:hover:brightness-125 cursor-pointer'}`}
                         >
-                            Feedback
+                            Form. de feedback
                             {/* <a className={`flex-1 select-none justify-center items-center rounded-md text-lg bg-intellectia-blue ${!AILoading && !myStudiesOpened && 'md:hover:brightness-125 cursor-pointer'}`}></a> */}
                         </Link>
 
