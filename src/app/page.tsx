@@ -40,8 +40,8 @@ const Page = () => {
   const openProfile = () => setProfileOpened(true);
   const closeProfile = () => setProfileOpened(false);
 
-  const loadChatUrl = "http://85.31.230.44:8000/loadChat";
-  const sendMessageUrl = "http://85.31.230.44:8000/chat1";
+  const loadChatUrl = "https://85.31.230.44:8000/loadChat";
+  const sendMessageUrl = "https://85.31.230.44:8000/chat1";
 
   let fheihfiehi = [
     {

@@ -7,7 +7,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Access-Control-Allow-Origin',
-            value: 'http://85.31.230.44:8000',
+            value: 'https://85.31.230.44:8000',
           },
         ],
       },
