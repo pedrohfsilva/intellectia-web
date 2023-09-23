@@ -180,7 +180,7 @@ const Page = () => {
   }
 
   useEffect(() => {
-    setChatList(getLocalStorage("chatData"));
+    setChatList(getLocalStorage("chatData") ?? []);
   }, []);
 
   const handleClearConversations = () => {
