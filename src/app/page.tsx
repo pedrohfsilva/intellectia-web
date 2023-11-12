@@ -40,8 +40,8 @@ const Page = () => {
   const openProfile = () => setProfileOpened(true);
   const closeProfile = () => setProfileOpened(false);
 
-  const loadChatUrl = "https://85.31.230.44:8000/loadChat";
-  const sendMessageUrl = "https://85.31.230.44:8000/chat1";
+  const loadChatUrl = "https://educa-gpt-79cfa8edccd9.herokuapp.com/loadChat";
+  const sendMessageUrl = "https://educa-gpt-79cfa8edccd9.herokuapp.com/chat1";
 
   let fheihfiehi = [
     {
