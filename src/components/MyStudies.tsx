@@ -17,7 +17,7 @@ export const MyStudies = ({ closeMyStudies }: Props) => {
                     <h2 className="text-sm text-white/80">Recursos da plataforma</h2>
                 </div>
                 <div className="p-6">
-                    <div className="flex flex-row gap-8 mb-4">
+                    <div className="flex flex-col md:flex-row gap-8 mb-4">
                         <div className="border-intellectia-lightblue rounded-md mb-4 flex-1">
                             <div className="flex flex-rol items-center mb-2">
                                 <div className="w-3 h-3 rounded-full bg-green-600"></div>
