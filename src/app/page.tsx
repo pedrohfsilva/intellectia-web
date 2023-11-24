@@ -25,7 +25,7 @@ const Page = () => {
   const [currentSubject, setCurrentSubject] = useState('Geral');
   const [currentExam, setCurrentExam] = useState('Todos');
   const [searchText, setSearchText] = useState('');
-  const [myStudiesOpened, setMyStudiesOpened] = useState(false);
+  const [myStudiesOpened, setMyStudiesOpened] = useState(true);
   const [profileOpened, setProfileOpened] = useState(false);
   const [isSmall, setIsSmall] = useState(false);
   const [chatLoading, setChatLoading] = useState(false);
@@ -398,7 +398,7 @@ const Page = () => {
 
   return (
     <main className="flex w-screen min-h-screen bg-intellectia-gray">
-      {/* {myStudiesOpened && <MyStudies closeMyStudies={closeMyStudies} />} */}
+      {myStudiesOpened && <MyStudies closeMyStudies={closeMyStudies} />}
       {/* {profileOpened && <Profile session={session} closeProfile={closeProfile} />} */}
 
       <Sidebar

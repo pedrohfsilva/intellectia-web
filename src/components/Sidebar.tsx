@@ -6,6 +6,7 @@ import IconTrash from "./icons/IconTrash";
 import IconBrain from "./icons/IconBrain";
 import IconIconSearch from "./icons/IconIconSearch";
 import Link from "next/link";
+import IconInfoCircle from "./icons/IconInfoCircle";
 
 type Props = {
     children: ReactNode;
@@ -69,13 +70,13 @@ export const Sidebar = ({ children, open, AILoading, onClose, onClear, onNewChat
                         {children}
                     </nav>
 
-                    {/* <div className="border-t border-t-gray-700 pt-2">
+                    <div className="border-t border-t-gray-700 p-2">
                         <SidebarButton
-                            icon={<IconTrash width={16} height={16} />}
-                            label="Limpar todas as conversas"
-                            onClick={onClear}
+                            icon={<IconInfoCircle width={16} height={16}></IconInfoCircle>}
+                            label="Sobre a plataforma"
+                            onClick={openMyStudies}
                         />
-                    </div> */}
+                    </div>
                 </div>
                 <div onClick={onClose} className="flex justify-center items-center w-10 h-10 cursor-pointer md:hidden">
                     <IconClose width={24} height={24}></IconClose>
