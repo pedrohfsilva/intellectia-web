@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import IconSend from "./icons/IconSend";
+import { KeyboardEventHandler } from "react";
 
 type Props = {
     disabled: boolean;
@@ -10,6 +11,7 @@ type Props = {
 }
 
 export const ChatMessageInput = ({ disabled, onSend, currentSubject, text, setText }: Props) => {
+    
     const textEl = useRef<HTMLTextAreaElement>(null);
 
     useEffect(() => {
@@ -29,6 +31,15 @@ export const ChatMessageInput = ({ disabled, onSend, currentSubject, text, setTe
     useEffect(() => {
         setText('');
     }, [currentSubject]);
+
+
+    const handleTextKeyUp: KeyboardEventHandler<HTMLTextAreaElement> = (event) => {
+        if (event.code.toLowerCase() === 'enter' && !event.shiftKey) {
+            event.preventDefault();
+            handleSendMessage(); // Certifique-se de que handleSendMessage está definida em algum lugar no seu código
+        }
+    };
+
 
     const handleSendMessage = () => {
         if(!disabled && text.trim() != '') {
@@ -54,6 +65,7 @@ export const ChatMessageInput = ({ disabled, onSend, currentSubject, text, setTe
                 placeholder={`Faça uma pergunta${currentSubject != 'Geral' ? ' sobre ' + currentSubject.toLowerCase() : ''}`}
                 value={text}
                 onChange={e => setText(e.target.value)}
+                onKeyUp={handleTextKeyUp}
                 disabled={disabled}
             >
             </textarea>
