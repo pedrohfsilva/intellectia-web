@@ -2,7 +2,6 @@ import { SessionProvider } from '@/components/SessionProvider'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import { getServerSession } from "next-auth";
-import { authOptions } from "../../pages/api/auth/[...nextauth]";
 import { Login } from "@/components/Login";
 import Page from './page';
 

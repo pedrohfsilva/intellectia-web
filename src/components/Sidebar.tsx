@@ -48,6 +48,15 @@ export const Sidebar = ({ children, open, AILoading, onClose, onClear, onNewChat
                             {/* <a className={`flex-1 select-none justify-center items-center rounded-md text-lg bg-intellectia-blue ${!AILoading && !myStudiesOpened && 'md:hover:brightness-125 cursor-pointer'}`}></a> */}
                         </Link>
 
+                        <Link 
+                            href="/new" 
+                            target="_self" 
+                            className={`flex h-10 select-none justify-center items-center rounded-md text-lg bg-green-500 ${!AILoading && !myStudiesOpened && 'md:hover:brightness-125 cursor-pointer'}`}
+                        >
+                            Estudo dirigido
+                            {/* <a className={`flex-1 select-none justify-center items-center rounded-md text-lg bg-intellectia-blue ${!AILoading && !myStudiesOpened && 'md:hover:brightness-125 cursor-pointer'}`}></a> */}
+                        </Link>
+
                         <div onClick={onNewChat} className={`transition-all flex items-center select-none h-10 px-3 rounded-md text-sm border-2 border-white/20 ${!AILoading && 'md:hover:bg-gray-500/20 cursor-pointer'}`}>
                             <IconAdd width={20} height={20} className="mr-3 text-white/80"/>
                             Nova seção
