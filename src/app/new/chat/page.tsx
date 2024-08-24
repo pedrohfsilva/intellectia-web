@@ -37,8 +37,8 @@ export default function Page() {
         <Link href="/new" className="bg-white/20 h-8 w-8 rounded-full flex justify-center items-center">
           <IconArrowBack width={24} height={24} color="white" />
         </Link>
-        <DashboardPageHeaderTitle className="">{contentData?.topic}</DashboardPageHeaderTitle>
-        <div></div>
+        <DashboardPageHeaderTitle className="text-2xl">{contentData?.topic}</DashboardPageHeaderTitle>
+        <div className="w-8 h-8"></div>
       </DashboardPageHeader>
       <DashboardPageMain className="flex flex-1 overflow-hidden">
         <ChatArea disabled={disabled} messages={messages} />

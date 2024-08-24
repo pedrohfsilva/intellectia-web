@@ -5,6 +5,7 @@ export const basePrompt = `
 type ContentType = {
   id: string,
   subject: string,
+  subjectId: string,
   topic: string,
   description: string,
   schedule: string,
@@ -13,6 +14,7 @@ type ContentType = {
 const biologia1: ContentType = {
   id: 'ecologia-e-meio-ambiente',
   subject: 'Biologia',
+  subjectId: 'biologia',
   topic: 'Ecologia e Meio Ambiente',
   description: 'Estudo das interações entre organismos e o meio ambiente, abordando ecossistemas, ciclos biogeoquímicos, biodiversidade, e os impactos das atividades humanas no planeta.',
   schedule: `
@@ -43,6 +45,7 @@ const biologia1: ContentType = {
 const biologia2: ContentType = {
   id: 'citologia',
   subject: 'Biologia',
+  subjectId: 'biologia',
   topic: 'Citologia',
   description: 'Análise das células, suas estruturas, funções e processos, incluindo transporte celular, ciclo celular, síntese de proteínas, e suas aplicações na biotecnologia e medicina.',
   schedule: `
@@ -73,6 +76,7 @@ const biologia2: ContentType = {
 const biologia3: ContentType = {
   id: 'genetica',
   subject: 'Biologia',
+  subjectId: 'biologia',
   topic: 'Genética',
   description: 'Exploração da hereditariedade e variação genética, cobrindo DNA, RNA, leis de Mendel, mutações, e as aplicações da genética na biotecnologia e medicina.',
   schedule: `
@@ -103,6 +107,7 @@ const biologia3: ContentType = {
 const biologia4: ContentType = {
   id: 'evolucao',
   subject: 'Biologia',
+  subjectId: 'biologia',
   topic: 'Evolução',
   description: 'Evolução é o estudo das mudanças nas características hereditárias das populações ao longo do tempo. Essa matéria aborda as teorias evolutivas, os mecanismos de evolução, as evidências que sustentam o processo evolutivo, e a relação entre evolução e biodiversidade.',
   schedule: `
@@ -133,6 +138,7 @@ const biologia4: ContentType = {
 const biologia5: ContentType = {
   id: 'fisiologia-humana',
   subject: 'Biologia',
+  subjectId: 'biologia',
   topic: 'Fisiologia Humana',
   description: 'Fisiologia Humana é o estudo do funcionamento dos sistemas do corpo humano e como eles interagem para manter a homeostase. A matéria abrange os principais sistemas fisiológicos, como o sistema nervoso, endócrino, cardiovascular, respiratório, digestivo, entre outros, explorando suas funções, regulações e interações.',
   schedule: `
@@ -163,6 +169,7 @@ const biologia5: ContentType = {
 const biologia6: ContentType = {
   id: 'botanica',
   subject: 'Biologia',
+  subjectId: 'biologia',
   topic: 'Botânica',
   description: 'Botânica é o estudo das plantas, abrangendo desde a morfologia e fisiologia vegetal até a ecologia e evolução das espécies. A matéria inclui a análise das estruturas vegetativas e reprodutivas, processos metabólicos, e a importância das plantas nos ecossistemas e para a humanidade.',
   schedule: `
@@ -193,6 +200,7 @@ const biologia6: ContentType = {
 const biologia7: ContentType = {
   id: 'zoologia',
   subject: 'Biologia',
+  subjectId: 'biologia',
   topic: 'Zoologia',
   description: 'Zoologia é o estudo dos animais, incluindo sua classificação, morfologia, fisiologia, comportamento e ecologia. A matéria explora a diversidade do reino animal, abordando desde os invertebrados até os vertebrados, e a importância dos animais nos ecossistemas.',
   schedule: `
@@ -223,6 +231,7 @@ const biologia7: ContentType = {
 const biologia8: ContentType = {
   id: 'microbiologia',
   subject: 'Biologia',
+  subjectId: 'biologia',
   topic: 'Microbiologia',
   description: 'Microbiologia é o estudo dos microrganismos, incluindo bactérias, vírus, fungos e protozoários. A matéria explora a morfologia, fisiologia, genética, ecologia e patogenicidade desses organismos, bem como suas aplicações na medicina, agricultura e indústria.',
   schedule: `
@@ -253,6 +262,7 @@ const biologia8: ContentType = {
 const biologia9: ContentType = {
   id: 'genetica',
   subject: 'Biologia',
+  subjectId: 'biologia',
   topic: 'Genética',
   description: 'Genética é o estudo da hereditariedade e da variação dos organismos. A matéria abrange os princípios da transmissão genética, a estrutura e função dos genes, a biotecnologia e suas aplicações, e a importância da genética na evolução e saúde humana.',
   schedule: `
@@ -280,6 +290,227 @@ const biologia9: ContentType = {
   `,
 }
 
+const portugues1: ContentType = {
+  id: 'generos-textuais',
+  subject: 'Português',
+  subjectId: 'portugues',
+  topic: 'Gêneros Textuais',
+  description: 'Gêneros Textuais é o estudo das diferentes formas de textos que circulam na sociedade, cada um com sua estrutura, função e características específicas. A matéria explora a diversidade dos gêneros, como narrativos, descritivos, argumentativos, e suas aplicações em diferentes contextos de comunicação.',
+  schedule: `
+    Disciplina: Português
+    Matéria: Gêneros Textuais
+
+    Cronograma de estudos por tópicos:
+    1 - Introdução aos gêneros textuais: conceitos e classificações
+    2 - Gêneros narrativos: conto, crônica, fábula, e novela
+    3 - Revisão dos conteúdos aprendidos anteriormente
+    4 - Gêneros descritivos: descrição objetiva e subjetiva
+    5 - Gêneros argumentativos: dissertação, artigo de opinião, carta argumentativa
+    6 - Gêneros expositivos: relatório, resenha, e resumo
+    7 - Revisão dos conteúdos aprendidos anteriormente
+    8 - Gêneros injuntivos: manual de instruções, receita, regras de jogo
+    9 - Gêneros digitais: blogs, e-mails, posts em redes sociais
+    10 - Análise e produção de gêneros textuais diversos
+    11 - Revisão dos conteúdos aprendidos anteriormente
+    12 - Adequação dos gêneros textuais ao contexto comunicativo
+    13 - Multimodalidade nos gêneros textuais: uso de imagens, som e texto
+    14 - Gêneros textuais na mídia: propaganda, notícia, reportagem
+    15 - Revisão dos conteúdos aprendidos anteriormente
+    16 - Estratégias de leitura e interpretação de gêneros textuais
+    17 - Revisão final e integração dos conteúdos de gêneros textuais
+  `,
+}
+
+const portugues2: ContentType = {
+  id: 'funcoes-da-linguagem',
+  subject: 'Português',
+  subjectId: 'portugues',
+  topic: 'Funções da Linguagem',
+  description: 'Funções da Linguagem é o estudo das diferentes maneiras pelas quais a linguagem pode ser utilizada para alcançar determinados objetivos de comunicação. A matéria explora as seis principais funções da linguagem (referencial, emotiva, conativa, fática, metalinguística e poética), suas características e exemplos práticos de cada uma.',
+  schedule: `
+    Disciplina: Português
+    Matéria: Funções da Linguagem
+
+    Cronograma de estudos por tópicos:
+    1 - Introdução às funções da linguagem: conceitos e importância
+    2 - Função referencial: objetividade e transmissão de informações
+    3 - Função emotiva: expressão de sentimentos e emoções
+    4 - Revisão dos conteúdos aprendidos anteriormente
+    5 - Função conativa ou apelativa: influência e persuasão do receptor
+    6 - Função fática: estabelecimento e manutenção da comunicação
+    7 - Função metalinguística: reflexão sobre a própria linguagem
+    8 - Revisão dos conteúdos aprendidos anteriormente
+    9 - Função poética: estética e criação de efeitos expressivos
+    10 - Identificação das funções da linguagem em textos variados
+    11 - Revisão dos conteúdos aprendidos anteriormente
+    12 - Aplicação das funções da linguagem em diferentes contextos comunicativos
+    13 - Análise de textos publicitários e suas funções predominantes
+    14 - Funções da linguagem em mídias digitais e interativas
+    15 - Revisão dos conteúdos aprendidos anteriormente
+    16 - Estratégias para reconhecer e utilizar as funções da linguagem na produção textual
+    17 - Revisão final e integração dos conteúdos de funções da linguagem
+  `,
+}
+
+const portugues3: ContentType = {
+  id: 'figuras-de-linguagem',
+  subject: 'Português',
+  subjectId: 'portugues',
+  topic: 'Figuras de Linguagem',
+  description: 'Figuras de Linguagem são recursos estilísticos que tornam a comunicação mais expressiva e eficaz. A matéria explora as diferentes figuras de linguagem, como metáfora, metonímia, antítese, eufemismo, entre outras, e suas aplicações em textos literários e cotidianos.',
+  schedule: `
+    Disciplina: Português
+    Matéria: Figuras de Linguagem
+
+    Cronograma de estudos por tópicos:
+    1 - Introdução às figuras de linguagem: conceitos e importância
+    2 - Figuras de palavras: metáfora, metonímia, catacrese, sinestesia
+    3 - Revisão dos conteúdos aprendidos anteriormente
+    4 - Figuras de pensamento: antítese, paradoxo, eufemismo, hipérbole, personificação, ironia
+    5 - Figuras de sintaxe: elipse, zeugma, pleonasmo, anáfora
+    6 - Figuras de som: aliteração, assonância, onomatopeia, paronomásia
+    7 - Revisão dos conteúdos aprendidos anteriormente
+    8 - Análise de figuras de linguagem em textos literários
+    9 - Aplicação das figuras de linguagem na produção textual
+    10 - Identificação e interpretação de figuras de linguagem em textos publicitários
+    11 - Revisão dos conteúdos aprendidos anteriormente
+    12 - Figuras de linguagem no discurso cotidiano e na oralidade
+    13 - Estratégias para criar efeitos expressivos com figuras de linguagem
+    14 - Figuras de linguagem e suas funções em diferentes gêneros textuais
+    15 - Revisão dos conteúdos aprendidos anteriormente
+    16 - Exercícios práticos de reconhecimento e uso de figuras de linguagem
+    17 - Revisão final e integração dos conteúdos de figuras de linguagem
+  `,
+}
+
+const portugues4: ContentType = {
+  id: 'morfologia',
+  subject: 'Português',
+  subjectId: 'portugues',
+  topic: 'Morfologia',
+  description: 'Morfologia é o estudo da estrutura, formação e classificação das palavras na língua portuguesa. A matéria abrange a análise dos elementos que compõem as palavras, como radicais, afixos e desinências, além da classificação das palavras em classes gramaticais e seus processos de formação.',
+  schedule: `
+    Disciplina: Português
+    Matéria: Morfologia
+
+    Cronograma de estudos por tópicos:
+    1 - Introdução à morfologia: conceitos básicos e importância
+    2 - Estrutura das palavras: radical, tema, afixos, desinências, vogal temática
+    3 - Revisão dos conteúdos aprendidos anteriormente
+    4 - Classes de palavras: substantivo, adjetivo, artigo, pronome, numeral
+    5 - Verbo: estrutura, conjugação e classificação dos verbos
+    6 - Advérbio, preposição, conjunção e interjeição: funções e classificações
+    7 - Revisão dos conteúdos aprendidos anteriormente
+    8 - Processos de formação de palavras: derivação, composição, abreviação, neologismo
+    9 - Análise morfológica em diferentes tipos de textos
+    10 - Flexão de gênero, número e grau das palavras
+    11 - Revisão dos conteúdos aprendidos anteriormente
+    12 - Concordância nominal e verbal: regras e exceções
+    13 - Morfologia e variação linguística: aspectos regionais e sociais
+    14 - Aplicação da morfologia na produção e interpretação textual
+    15 - Revisão dos conteúdos aprendidos anteriormente
+    16 - Exercícios práticos de análise morfológica
+    17 - Revisão final e integração dos conteúdos de morfologia
+  `,
+}
+
+const portugues5: ContentType = {
+  id: 'sintaxe',
+  subject: 'Português',
+  subjectId: 'portugues',
+  topic: 'Sintaxe',
+  description: 'Sintaxe é o estudo da estrutura das frases e orações, e das relações entre os termos que as compõem. A matéria explora a organização das palavras em orações, a concordância e regência, além das funções sintáticas e dos tipos de orações na língua portuguesa.',
+  schedule: `
+    Disciplina: Português
+    Matéria: Sintaxe
+
+    Cronograma de estudos por tópicos:
+    1 - Introdução à sintaxe: conceitos básicos e importância
+    2 - Termos essenciais da oração: sujeito e predicado
+    3 - Revisão dos conteúdos aprendidos anteriormente
+    4 - Termos integrantes da oração: complemento verbal (objeto direto e indireto), complemento nominal, agente da passiva
+    5 - Termos acessórios da oração: adjunto adnominal, adjunto adverbial, aposto e vocativo
+    6 - Período simples e período composto: coordenação e subordinação
+    7 - Revisão dos conteúdos aprendidos anteriormente
+    8 - Orações subordinadas: substantivas, adjetivas, adverbiais
+    9 - Orações coordenadas: aditivas, adversativas, alternativas, conclusivas, explicativas
+    10 - Concordância verbal e nominal: regras e exceções
+    11 - Revisão dos conteúdos aprendidos anteriormente
+    12 - Regência verbal e nominal: normas e desvios
+    13 - Colocação pronominal: próclise, mesóclise, ênclise
+    14 - Análise sintática de frases complexas
+    15 - Revisão dos conteúdos aprendidos anteriormente
+    16 - Exercícios práticos de análise sintática
+    17 - Revisão final e integração dos conteúdos de sintaxe
+  `,
+}
+
+const portugues6: ContentType = {
+  id: 'concordancia-verbal-e-nominal',
+  subject: 'Português',
+  subjectId: 'portugues',
+  topic: 'Concordância Verbal e Nominal',
+  description: 'Concordância Verbal e Nominal é o estudo das regras que regem a relação de concordância entre os termos de uma oração. A matéria abrange as normas que determinam a concordância do verbo com o sujeito e dos adjetivos, artigos e pronomes com os substantivos, além das principais exceções e casos especiais.',
+  schedule: `
+    Disciplina: Português
+    Matéria: Concordância Verbal e Nominal
+
+    Cronograma de estudos por tópicos:
+    1 - Introdução à concordância: conceitos básicos e importância
+    2 - Concordância verbal: regras gerais
+    3 - Revisão dos conteúdos aprendidos anteriormente
+    4 - Concordância verbal em casos especiais: sujeito composto, sujeito oracional, expressões partitivas
+    5 - Concordância verbal com verbos impessoais
+    6 - Concordância nominal: regras gerais
+    7 - Revisão dos conteúdos aprendidos anteriormente
+    8 - Concordância nominal em casos especiais: adjetivos compostos, pronomes, coletivos
+    9 - Concordância de nomes com mais de um determinante
+    10 - Concordância com expressões indicativas de quantidade
+    11 - Revisão dos conteúdos aprendidos anteriormente
+    12 - Casos de concordância facultativa
+    13 - Exercícios práticos de concordância verbal e nominal
+    14 - Análise de concordância em textos variados
+    15 - Revisão dos conteúdos aprendidos anteriormente
+    16 - Aplicação das regras de concordância na produção textual
+    17 - Revisão final e integração dos conteúdos de concordância verbal e nominal
+  `,
+}
+
+const portugues7: ContentType = {
+  id: 'pontuacao',
+  subject: 'Português',
+  subjectId: 'portugues',
+  topic: 'Pontuação',
+  description: 'Pontuação é o estudo dos sinais gráficos que organizam e estruturam a escrita, garantindo clareza e coerência ao texto. A matéria explora o uso correto de vírgula, ponto, ponto e vírgula, dois-pontos, travessão, parênteses, entre outros, em diferentes contextos comunicativos.',
+  schedule: `
+    Disciplina: Português
+    Matéria: Pontuação
+
+    Cronograma de estudos por tópicos:
+    1 - Introdução à pontuação: conceitos básicos e importância
+    2 - Uso da vírgula: separação de termos, orações coordenadas e subordinadas
+    3 - Revisão dos conteúdos aprendidos anteriormente
+    4 - Uso do ponto: final de frase, abreviaturas
+    5 - Uso do ponto e vírgula: separação de itens em listagens, orações coordenadas extensas
+    6 - Uso dos dois-pontos: introdução de fala, explicações, listagens
+    7 - Revisão dos conteúdos aprendidos anteriormente
+    8 - Uso do travessão: destaque de informações, diálogos, interrupções
+    9 - Uso dos parênteses: inserção de explicações, datas, referências
+    10 - Uso das reticências: interrupções, continuidade, suspense
+    11 - Revisão dos conteúdos aprendidos anteriormente
+    12 - Uso do ponto de exclamação e ponto de interrogação: ênfase e questionamentos
+    13 - Pontuação em textos formais e informais
+    14 - Exercícios práticos de pontuação em diferentes tipos de texto
+    15 - Revisão dos conteúdos aprendidos anteriormente
+    16 - Pontuação e estilo: como a pontuação altera o sentido e o ritmo do texto
+    17 - Revisão final e integração dos conteúdos de pontuação
+  `,
+}
+
+
+
+
+
 
 
 
@@ -296,4 +527,11 @@ export const contents: ContentType[] = [
   biologia7,
   biologia8,
   biologia9,
+  portugues1,
+  portugues2,
+  portugues3,
+  portugues4,
+  portugues5,
+  portugues6,
+  portugues7,
 ]

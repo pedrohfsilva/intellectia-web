@@ -13,11 +13,15 @@ export default function Page() {
           <IconArrowBack width={24} height={24} color="white" />
         </Link>
         <DashboardPageHeaderTitle className="text-2xl">Estudo dirigido</DashboardPageHeaderTitle>
-        <div></div>
+        <div className="w-8 h-8"></div>
       </DashboardPageHeader>
       <DashboardPageMain className="bg-intellectia-gray">
-        <ChatSubjectArea subject="Biologia" />
-        <ChatSubjectArea subject="Biologia" />
+        <ChatSubjectArea subject="Biologia" bgColor={"bg-green-200/30"} />
+        <ChatSubjectArea subject="Português" bgColor={"bg-red-200/30"} />
+        <ChatSubjectArea subject="Geografia" bgColor={"bg-green-200/30"} />
+        <ChatSubjectArea subject="Filosofia e sociologia" bgColor={"bg-green-200/30"} />
+        <ChatSubjectArea subject="Inglês" bgColor={"bg-green-200/30"} />
+        <ChatSubjectArea subject="História" bgColor={"bg-green-200/30"} />
       </DashboardPageMain>
     </DashboardPage>
   );

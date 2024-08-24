@@ -2,13 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 type BoardProps = {
-  id: string;
-  title: string;
-  description: string;
+  id: String;
+  title: String;
+  description: String;
   imagePath: string;
+  bgColor: String;
 }
 
-export function Board({ id, title, description, imagePath }: BoardProps) {
+export function Board({ id, title, description, imagePath, bgColor }: BoardProps) {
   return (
     <div className="rounded-xl h-72 overflow-hidden bg-intellectia-darkgray p-0 text-left hover:shadow-lg">
       <Link href={`/new/chat?content=${id}`} className="w-full h-full">
@@ -19,7 +20,7 @@ export function Board({ id, title, description, imagePath }: BoardProps) {
             alt="Picture of the author"
             className="w-full h-full object-cover"
           />
-          <div className=" absolute w-full h-full z-10 left-0 top-0 bg-green-600/50"></div>
+          <div className={`absolute w-full h-full z-10 left-0 top-0 ${bgColor}`}></div>
         </div>
         <div className="flex flex-1 flex-col gap-4 p-4">
           <h1 className="text-lg text-primary truncate overflow-hidden">{title}</h1>
