@@ -2,7 +2,7 @@
 
 import { DashboardPage, DashboardPageFooter, DashboardPageHeader, DashboardPageHeaderTitle, DashboardPageMain } from "@/components/page";
 import { ChatArea } from "./_components/chat-area";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChatMessageInput } from "./_components/chat-message-input";
 import { useChat } from 'ai/react'
 import { basePrompt } from "@/prompts/contents-prompts";
@@ -20,7 +20,7 @@ export default function Page() {
 
   const [disabled, setDisabled] = useState(false);
 
-  const { messages, input, handleInputChange, handleSubmit } = useChat({
+  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
     api: '../../api/chat',
     initialMessages: [
       {
@@ -30,6 +30,16 @@ export default function Page() {
       }
     ]
   })
+
+  useEffect(() => {
+    const lastMessage = messages[messages.length - 1];
+
+    if (isLoading) {
+      setDisabled(true)
+    } else {
+      setDisabled(false)
+    }
+  }, [messages, isLoading]);
 
   return (
     <DashboardPage className="bg-intellectia-gray">
@@ -44,7 +54,7 @@ export default function Page() {
         <ChatArea disabled={disabled} messages={messages} />
       </DashboardPageMain>
       <DashboardPageFooter className="flex justify-center border-white/20">
-        <ChatMessageInput disabled={disabled} input={input} handleInputChange={handleInputChange} handleSubmit={handleSubmit} />
+        <ChatMessageInput disabled={disabled} setDisabled={setDisabled} input={input} handleInputChange={handleInputChange} handleSubmit={handleSubmit} firstMessage={messages.filter((m) => m.role != 'system').length === 0} />
       </DashboardPageFooter>
     </DashboardPage>
   )
