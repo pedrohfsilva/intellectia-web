@@ -4,6 +4,7 @@ import { basePrompt, contents } from "@/prompts/contents-prompts";
 import Link from "next/link";
 import IconArrowBack from "@/components/icons/IconArrowBack";
 import { ChatSubjectArea } from "./_components/chat-subject-area";
+import IconTrash from "@/components/icons/IconTrash";
 
 export default function Page() {
   return (
@@ -18,9 +19,9 @@ export default function Page() {
       <DashboardPageMain className="bg-intellectia-gray flex justify-center">
         <div className="md:max-w-6xl">
           <ChatSubjectArea subject="Biologia" bgColor={"bg-green-200/30"} />
-          <ChatSubjectArea subject="Português" bgColor={"bg-red-200/30"} />
           <ChatSubjectArea subject="Geografia" bgColor={"bg-green-200/30"} />
           <ChatSubjectArea subject="Filosofia e Sociologia" bgColor={"bg-green-200/30"} />
+          <ChatSubjectArea subject="Português" bgColor={"bg-red-200/30"} />
           <ChatSubjectArea subject="Inglês" bgColor={"bg-green-200/30"} />
           <ChatSubjectArea subject="História" bgColor={"bg-green-200/30"} />
         </div>
