@@ -972,10 +972,10 @@ const historia8: ContentType = {
 }
 
 const historia9: ContentType = {
-  id: 'renascimento-e-reforma',
+  id: 'renascimento',
   subject: 'História',
   subjectId: 'historia',
-  topic: 'Renascimento e Reforma',
+  topic: 'Renascimento',
   description: 'Estudo do Renascimento cultural e científico na Europa, juntamente com a Reforma Protestante e suas consequências religiosas, políticas e sociais.',
   schedule: `
     Disciplina: História
@@ -1145,34 +1145,6 @@ const ingles2: ContentType = {
 }
 
 const ingles3: ContentType = {
-  id: 'false-friends',
-  subject: 'Inglês',
-  subjectId: 'ingles',
-  topic: 'False Friends',
-  description: 'Estudo de palavras em inglês que são semelhantes a palavras em português, mas têm significados diferentes, e como evitar erros comuns ao usá-las.',
-  schedule: `
-    Disciplina: Inglês
-    Matéria: False Friends
-
-    Cronograma de estudos por tópicos:
-    1 - Introdução aos false friends: conceitos básicos e importância
-    2 - Principais false friends e seus significados em inglês e português
-    3 - Revisão dos conteúdos aprendidos anteriormente
-    4 - Como identificar false friends em textos e falas
-    5 - Técnicas para evitar erros comuns com false friends
-    6 - Exercícios de identificação e correção de false friends
-    7 - Revisão dos conteúdos aprendidos anteriormente
-    8 - Análise de textos com exemplos de false friends
-    9 - Prática de substituição de false friends por palavras corretas
-    10 - Estudo de casos: erros comuns em exames e como corrigi-los
-    11 - Revisão dos conteúdos aprendidos anteriormente
-    12 - Técnicas de memorização de false friends e seus significados
-    13 - Exercícios práticos com false friends em contextos variados
-    14 - Revisão final e integração dos conteúdos de false friends
-  `,
-}
-
-const ingles4: ContentType = {
   id: 'verbos-modais',
   subject: 'Inglês',
   subjectId: 'ingles',
@@ -1200,7 +1172,7 @@ const ingles4: ContentType = {
   `,
 }
 
-const ingles5: ContentType = {
+const ingles4: ContentType = {
   id: 'preposicoes',
   subject: 'Inglês',
   subjectId: 'ingles',
@@ -1228,7 +1200,7 @@ const ingles5: ContentType = {
   `,
 }
 
-const ingles6: ContentType = {
+const ingles5: ContentType = {
   id: 'pronomes',
   subject: 'Inglês',
   subjectId: 'ingles',
@@ -1256,7 +1228,7 @@ const ingles6: ContentType = {
   `,
 }
 
-const ingles7: ContentType = {
+const ingles6: ContentType = {
   id: 'simple-present-e-present-continuous',
   subject: 'Inglês',
   subjectId: 'ingles',
@@ -1284,7 +1256,7 @@ const ingles7: ContentType = {
   `,
 }
 
-const ingles8: ContentType = {
+const ingles7: ContentType = {
   id: 'reported-speech',
   subject: 'Inglês',
   subjectId: 'ingles',
@@ -1579,7 +1551,6 @@ export const contents: ContentType[] = [
   ingles5,
   ingles6,
   ingles7,
-  ingles8,
   filosofiaSociologia1,
   filosofiaSociologia2,
   filosofiaSociologia3,
