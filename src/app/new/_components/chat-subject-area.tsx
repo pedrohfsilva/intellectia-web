@@ -13,7 +13,7 @@ export function ChatSubjectArea({ subject, bgColor }: ChatSubjectAreaProps) {
       <div className="grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-4 gap-6 h-auto">
         {contents.filter((content) => content.subject === subject).map((content) => {
           return (
-            <Board id={content.id} title={content.topic} description={content.description} imagePath={`/${content.subjectId}/${content.id}.png`} bgColor={bgColor} />
+            <Board key={content.id} id={content.id} title={content.topic} description={content.description} imagePath={`/${content.subjectId}/${content.id}.png`} bgColor={bgColor} />
           )
         })}
       </div>
