@@ -58,7 +58,7 @@ export const Header = ({ title, newChatClick, AILoading, currentSubject, exams, 
             </div> */}
 
             <div onClick={newChatClick} className="h-8 w-8 rounded-full bg-white/10 flex justify-center items-center md:cursor-pointer md:hover:bg-white/10">
-                <IconAdd width={24} height={24} />
+                <IconAdd width={24} height={24} color="white" />
             </div>
         </header>
     );
