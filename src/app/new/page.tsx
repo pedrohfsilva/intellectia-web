@@ -18,12 +18,12 @@ export default function Page() {
       </DashboardPageHeader>
       <DashboardPageMain className="bg-intellectia-gray flex justify-center">
         <div className="md:max-w-6xl">
-          <ChatSubjectArea subject="Biologia" bgColor={"bg-green-200/30"} />
-          <ChatSubjectArea subject="Geografia" bgColor={"bg-green-200/30"} />
-          <ChatSubjectArea subject="Filosofia e Sociologia" bgColor={"bg-green-200/30"} />
-          <ChatSubjectArea subject="Português" bgColor={"bg-red-200/30"} />
-          <ChatSubjectArea subject="Inglês" bgColor={"bg-green-200/30"} />
-          <ChatSubjectArea subject="História" bgColor={"bg-green-200/30"} />
+          <ChatSubjectArea subject="Biologia" bgColor={"bg-green-300/30"} />
+          <ChatSubjectArea subject="Geografia" bgColor={"bg-blue-300/30"} />
+          <ChatSubjectArea subject="Filosofia e Sociologia" bgColor={"bg-orange-300/30"} />
+          <ChatSubjectArea subject="Inglês" bgColor={"bg-yellow-200/30"} />
+          <ChatSubjectArea subject="Português" bgColor={"bg-purple-300/30"} />
+          <ChatSubjectArea subject="História" bgColor={"bg-orange-900/30"} />
         </div>
       </DashboardPageMain>
     </DashboardPage>
